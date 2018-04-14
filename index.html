@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .progress {
+            position: relative;
+            width: 300px;
+            height: 25px;
+            background: red;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .file {
+            display: inline-block;
+            position: relative;
+            width: 306px;
+            height: 25px;
+            top: -6px;
+            background: #cbcbcb;
+            line-height: 25px;
+        }
+
+        .done {
+            background: green;
+            float: left;
+            height: 100%;
+        }
+
+        .desc {
+            position: absolute;
+            top: 3px;
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+
+        .subcategory {
+            margin-left: 10px;
+            padding-left: 10px;
+        }
+
+        .collapser {
+            background: #0cb60c;
+            color: white;
+            cursor: pointer;
+            width: 530px;
+            height: 25px;
+            line-height: 25px;
+            display: block;
+            padding-left: 5px;
+            margin-bottom: 5px;
+        }
+
+        .collapsed {
+            display: none;
+        }
+
+        .collapser.collapsed {
+            display: block;
+            background: #fc9a08;
+        }
+        #logo{
+            width: 100px;
+            float: left;
+        }
+        #title{
+            float: left;
+            font-size: 26px;
+            font-family: Arial;
+            margin-top: 15px;
+            margin-left: 10px;
+        }
+        #header{
+            margin-bottom: 10px;
+        }
+        #logoblock{
+            display: inline-block;
+        }
+        #links{
+            display: inline-block;
+            position: relative;
+            right: 106px;
+            top: 7px;
+        }
+        #links a{
+            font-size: 20px;
+            text-decoration: none;
+            color: #002bff;
+            display: block;
+        }
+    </style>
+    <div id="header">
+        <div id="logoblock">
+            <img src="https://i.pinimg.com/originals/2f/67/49/2f674938937ca9bf280223b1188667a6.png" alt="" id="logo">
+            <div id="title">Books, books everywhere!</div>
+        </div>
+        <div id="links">
+            <a href="http://elelementsofprogramminginterviews.com">Our cool site</a>
+            <a href="https://github.com/adnanaziz/EPIJudge">Our cool github</a>
+        </div>
+    </div>
+    <div id="output"></div>
+    <script src="js/index.js"></script>
+    <script src="json/problem_mapping.json"></script>
+</body>
+
+</html>
