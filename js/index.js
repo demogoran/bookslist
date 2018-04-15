@@ -9,15 +9,21 @@ const run=(e)=>{
             <span class="cname collapser">${category}</span>
             <div class="ccontainer"></div>
         </div>`
+        let sumStats={
+            passed: 0,
+            total: 0
+        }
         for(let subcategory in e[category]){
             let data=Object.keys(e[category][subcategory]).find(x=>x.startsWith('C++'));
             if(data){
                 let value=e[category][subcategory][data];
+                sumStats.passed+=value.passed;
+                sumStats.total+=value.total;
                 document.querySelector(`[data-category="${category}"] .ccontainer`).innerHTML+=`
                 <div class="subcategory" data-subcategory="${subcategory}">
-                    <span class="scname collapser collapsed">${subcategory}</span>   
+                    <span class="scname collapser collapsed" title="${subcategory}">${subcategory}</span>   
+                    <a class="file collapsed" href="./${data}">${data}</a>
                     <div class="test collapsed">                    
-                        <a class="file" href="./${data}">${data}</a>
                         <div class="progress">
                             <div class="done" style="width: ${value.passed/value.total*100}%;"></div>
                             <div class="desc">${value.passed} problems out of ${value.total}</div>
@@ -26,17 +32,44 @@ const run=(e)=>{
                 </div>`;
             }
         }
+
+        let div=document.createElement('div');
+        div.classList.add('totalprogress');
+        div.innerHTML=`                  
+        <div class="progress">
+            <div class="done" style="width: ${sumStats.passed/sumStats.total*100}%;"></div>
+            <div class="desc">${sumStats.passed} problems out of ${sumStats.total}</div>
+        </div>`;
+
+        let cname=document.querySelector(`[data-category="${category}"] .cname`);
+        cname.parentNode.insertBefore(div, cname.nextSibling);
     }
 
-    Array.from(document.querySelectorAll('.collapser')).forEach(x=>{
+    Array.from(document.querySelectorAll('.cname.collapser')).forEach(x=>{
         x.addEventListener('click', ()=>{
-            if(!x.nextElementSibling.classList.contains('collapsed')){
+            if(!x.classList.contains('collapsed')){
                 x.classList.add('collapsed');
                 x.nextElementSibling.classList.add('collapsed');
+                x.nextElementSibling.nextElementSibling.classList.add('collapsed');
             }
             else{
                 x.classList.remove('collapsed');                
                 x.nextElementSibling.classList.remove('collapsed');
+                x.nextElementSibling.nextElementSibling.classList.remove('collapsed');
+            }
+        });
+    });
+    Array.from(document.querySelectorAll('.scname.collapser')).forEach(x=>{
+        x.addEventListener('click', ()=>{
+            if(!x.classList.contains('collapsed')){
+                x.classList.add('collapsed');
+                x.nextElementSibling.classList.add('collapsed');
+                x.nextElementSibling.nextElementSibling.classList.add('collapsed');
+            }
+            else{
+                x.classList.remove('collapsed');                
+                x.nextElementSibling.classList.remove('collapsed');
+                x.nextElementSibling.nextElementSibling.classList.remove('collapsed');
             }
         });
     });

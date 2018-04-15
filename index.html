@@ -12,21 +12,32 @@
     <style>
         .progress {
             position: relative;
-            width: 300px;
+            width: 490px;
             height: 25px;
             background: red;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: -5px;
+        }
+
+        .totalprogress {
+            margin-top: 5px;
+            display: inline-block;
+            width: 515px;
+            margin-left: 20px;
+        }
+
+        .totalprogress .progress {
+            width: 100%;
         }
 
         .file {
             display: inline-block;
             position: relative;
-            width: 306px;
+            width: 231px;
             height: 25px;
-            top: -6px;
             background: #cbcbcb;
             line-height: 25px;
+            top: -12px;
         }
 
         .done {
@@ -44,6 +55,7 @@
         }
 
         .subcategory {
+            position: relative;
             margin-left: 10px;
             padding-left: 10px;
         }
@@ -60,6 +72,16 @@
             margin-bottom: 5px;
         }
 
+        .scname {
+            width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline-block;
+        }
+
+        .test {}
+
         .collapsed {
             display: none;
         }
@@ -68,30 +90,37 @@
             display: block;
             background: #fc9a08;
         }
-        #logo{
+
+        .scname.collapser.collapsed {
+            display: inline-block;
+        }
+
+        #logo {
             width: 100px;
             float: left;
         }
-        #title{
+
+        #title {
             float: left;
             font-size: 26px;
             font-family: Arial;
             margin-top: 15px;
             margin-left: 10px;
         }
-        #header{
+
+        #header {
             margin-bottom: 10px;
         }
-        #logoblock{
+
+        #logoblock {
             display: inline-block;
         }
-        #links{
-            display: inline-block;
+
+        #links {
             position: relative;
-            right: 106px;
-            top: 7px;
         }
-        #links a{
+
+        #links a {
             font-size: 20px;
             text-decoration: none;
             color: #002bff;
