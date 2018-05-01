@@ -2,7 +2,7 @@ run({
     "Primitive Types": {
         "Bootcamp: Primitive Types": {
             "C++: count_bits.cc": {
-                "passed": 1000,
+                "passed": 10000,
                 "total": 10001
             },
             "Java: CountBits.java": {

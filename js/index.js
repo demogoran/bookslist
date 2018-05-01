@@ -26,7 +26,10 @@ const run=(e)=>{
                     <div class="test collapsed">                    
                         <div class="progress">
                             <div class="done" style="width: ${value.passed/value.total*100}%;"></div>
-                            <div class="desc">${value.passed} problems out of ${value.total}</div>
+                            <div class="desc">
+                                <span>Problems:</span>
+                                <span>${value.passed}/${value.total}</span>
+                            </div>
                         </div>
                     </div>
                 </div>`;
@@ -35,10 +38,13 @@ const run=(e)=>{
 
         let div=document.createElement('div');
         div.classList.add('totalprogress');
-        div.innerHTML=`                  
+        div.innerHTML=`                
         <div class="progress">
             <div class="done" style="width: ${sumStats.passed/sumStats.total*100}%;"></div>
-            <div class="desc">${sumStats.passed} problems out of ${sumStats.total}</div>
+            <div class="desc">
+                <span>Problems:</span>
+                <span>${sumStats.passed}/${sumStats.total}</span>
+            </div>
         </div>`;
 
         let cname=document.querySelector(`[data-category="${category}"] .cname`);
